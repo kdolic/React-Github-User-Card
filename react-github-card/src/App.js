@@ -71,8 +71,8 @@ render() {
     <div className="App">
      <h1>GitHub User Card App</h1>
      <form className='form_container'>
-       <input onChange={this.handleChange} type='text' placeholder='Enter GitHub Username...' />
-       <button onClick={this.handleClick}>Search GitHub User</button>
+       <input className='search' onChange={this.handleChange} type='text' placeholder='Enter GitHub Username...' />
+       <button className='btn' onClick={this.handleClick}>Search GitHub User</button>
      </form>
      <UserCard {...this.state.user} followers={this.state.followers}  />
     </div>
