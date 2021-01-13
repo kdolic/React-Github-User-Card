@@ -1,17 +1,34 @@
 import React, {Component} from 'react';
+import styled from 'styled-components'
+
+const Avatar = styled.img `
+    border-radius: 10px;
+`
+
+
+// const Card = styled.div `
+//     background-color: black;
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     width: 100%;
+//     border-radius: 10px;
+// `
+
 
 class UserCard extends React.Component {
     render() {
+        const {avatar_url, name, login, location, html_url, followers, following, bio} = this.props
         return(
             <div>
-                <img src={this.props.user.avatar_url} />
-                <h2>{this.props.user.name}</h2>
-                <h4>{this.props.user.login}</h4>
-                <p>Location: {this.props.user.location}</p>
-                <p>Profile: {this.props.user.html_url}</p>
-                <p>Followers: {this.props.user.followers}</p>
-                <p>Following: {this.props.user.following}</p>
-                <p>Bio: {this.props.user.bio}</p>
+                <Avatar width='180' src={avatar_url} />
+                <h2>{name}</h2>
+                <h4>{login}</h4>
+                <p>Location: {location}</p>
+                <p>Profile: {html_url}</p>
+                <div><h3>Followers</h3> {followers.map(follower => <p>{follower}</p>)}</div>
+                <p>Following: {following}</p>
+                <p>Bio: {bio}</p>
             </div>
         )
     }
